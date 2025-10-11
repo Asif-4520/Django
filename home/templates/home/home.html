@@ -3,13 +3,13 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Django Starter | ASIF DEV</title>
+        <title>Asif Django Starter</title>
         <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
             rel="stylesheet"
         />
         <style>
-            /* Reset */
+            /* === Base Reset === */
             * {
                 margin: 0;
                 padding: 0;
@@ -17,122 +17,255 @@
             }
 
             body {
-                font-family: 'Montserrat', sans-serif;
-                background: linear-gradient(135deg, #0f172a, #1e293b);
+                font-family: 'Poppins', sans-serif;
+                background: radial-gradient(
+                    circle at top left,
+                    #0f172a,
+                    #020617 60%
+                );
                 color: #e2e8f0;
+                min-height: 100vh;
+                overflow: hidden;
                 display: flex;
-                flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                min-height: 100vh;
+                position: relative;
+            }
+
+            /* === Animated Gradient Backdrop === */
+            .background {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    120deg,
+                    rgba(56, 189, 248, 0.08),
+                    rgba(99, 102, 241, 0.08),
+                    rgba(168, 85, 247, 0.08)
+                );
+                background-size: 400% 400%;
+                animation: gradientShift 12s ease infinite;
+                z-index: 0;
+            }
+
+            @keyframes gradientShift {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            /* === Floating Orbs === */
+            .orb {
+                position: absolute;
+                border-radius: 50%;
+                filter: blur(150px);
+                opacity: 0.35;
+                animation: float 10s ease-in-out infinite alternate;
+            }
+
+            .orb.one {
+                width: 500px;
+                height: 500px;
+                top: 5%;
+                left: 10%;
+                background: #38bdf8;
+            }
+
+            .orb.two {
+                width: 600px;
+                height: 600px;
+                bottom: 0%;
+                right: 10%;
+                background: #6366f1;
+                animation-delay: 2s;
+            }
+
+            @keyframes float {
+                0% {
+                    transform: translateY(0px);
+                }
+                100% {
+                    transform: translateY(40px);
+                }
+            }
+
+            /* === Mouse Follower Glow === */
+            .cursor-glow {
+                position: fixed;
+                width: 250px;
+                height: 250px;
+                border-radius: 50%;
+                pointer-events: none;
+                background: radial-gradient(
+                    circle,
+                    rgb(56, 191, 248),
+                    rgb(14, 164, 233),
+                    transparent 70%
+                );
+                filter: blur(80px);
+                transform: translate(-50%, -50%);
+                transition: all 0.08s ease-out;
+                z-index: 1;
+            }
+
+            /* === Main Container === */
+            .container {
+                position: relative;
+                z-index: 2;
                 text-align: center;
-                overflow: hidden;
-                padding: 20px;
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(25px);
+                border-radius: 22px;
+                padding: 70px 90px;
+                box-shadow: 0 0 40px rgba(56, 189, 248, 0.1);
+                transform: translateY(30px);
+                opacity: 0;
+                animation: fadeUp 1.4s ease forwards;
             }
 
-            /* Gradient animated heading */
-            h1 {
-                font-size: 3rem;
-                background: linear-gradient(90deg, #38bdf8, #0ea5e9, #06b6d4);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                animation: glow 2s ease-in-out infinite alternate;
-                margin-bottom: 15px;
-            }
-
-            @keyframes glow {
-                from {
-                    text-shadow: 0 0 10px #00b3ff;
-                }
+            @keyframes fadeUp {
                 to {
-                    text-shadow: 0 0 25px #0ea5e9;
+                    transform: translateY(0);
+                    opacity: 1;
                 }
             }
 
-            /* Description */
-            p {
-                color: #94a3b8;
-                font-size: 1.2rem;
-                margin-bottom: 30px;
+            /* === Title === */
+            h1 {
+                font-size: 3.5rem;
+                font-weight: 800;
+                letter-spacing: 1px;
+                background: linear-gradient(90deg, #22d3ee, #38bdf8, #6366f1);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: pulse 3s ease-in-out infinite;
             }
 
-            /* Buttons */
+            @keyframes pulse {
+                0%,
+                100% {
+                    text-shadow: 0 0 10px #38bdf8;
+                }
+                50% {
+                    text-shadow: 0 0 40px #38bdf8;
+                }
+            }
+
+            /* === Description === */
+            p {
+                font-size: 1.2rem;
+                color: #94a3b8;
+                margin: 15px 0 35px;
+                letter-spacing: 0.5px;
+            }
+
+            /* === Buttons === */
+            .btns {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
             .btn {
-                display: inline-block;
-                padding: 12px 25px;
-                margin: 5px;
-                font-weight: bold;
-                border-radius: 30px;
                 text-decoration: none;
                 color: #0f172a;
-                background: #38bdf8;
-                transition: all 0.3s ease;
+                background: linear-gradient(90deg, #22d3ee, #38bdf8, #6366f1);
+                padding: 12px 32px;
+                border-radius: 12px;
+                font-weight: 600;
+                transition: all 0.25s ease;
+                box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
             }
 
             .btn:hover {
-                background: #0ea5e9;
-                box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+                transform: scale(1.08) translateY(-3px);
+                box-shadow: 0 0 40px rgba(56, 189, 248, 0.4);
             }
 
-            /* Resource links */
-            .resource-links {
-                margin-top: 25px;
-            }
-
-            .resource-links a {
-                margin: 0 10px;
-                color: #38bdf8;
-                font-weight: bold;
-                text-decoration: none;
-                transition: color 0.3s ease;
-            }
-
-            .resource-links a:hover {
-                color: #0ea5e9;
-            }
-
-            /* Footer */
+            /* === Footer === */
             footer {
                 position: absolute;
                 bottom: 20px;
+                color: #64748b;
                 font-size: 0.9rem;
-                color: #94a3b8;
+                z-index: 2;
+            }
+
+            @media (max-width: 700px) {
+                .container {
+                    padding: 40px 25px;
+                    width: 90%;
+                }
+
+                h1 {
+                    font-size: 2.6rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                }
             }
         </style>
     </head>
+
     <body>
-        <!-- Heading -->
-        <h1>Django Starter Project</h1>
+        <div class="background"></div>
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+        <div class="cursor-glow" id="cursor-glow"></div>
 
-        <!-- Description -->
-        <p>Your clean base setup is ready !</p>
+        <div class="container">
+            <h1>✨ Django Starter ✨</h1>
+            <p>Professional • Smooth • Built to Impress</p>
 
-        <!-- Buttons -->
-        <div>
-            <a href="https://www.djangoproject.com/" class="btn" target="_blank"
-                >🌐 Django Official</a
-            >
-
-            <a
-                href="https://github.com/Asif-4520/Django"
-                class="btn"
-                target="_blank"
-                >🐙 GitHub Repo</a
-            >
+            <div class="btns">
+                <a
+                    href="https://github.com/Asif-4520/Django"
+                    class="btn"
+                    target="_blank"
+                    >🐙 GitHub</a
+                >
+                <a
+                    href="https://docs.djangoproject.com/en/5.2/"
+                    class="btn"
+                    target="_blank"
+                    >📘 Docs</a
+                >
+                <a
+                    href="https://github.com/Asif-4520"
+                    class="btn"
+                    target="_blank"
+                    >💼 Portfolio</a
+                >
+            </div>
         </div>
 
-        <!-- Other resources -->
-        <div class="resource-links">
-            <a href="https://docs.djangoproject.com/en/5.2/" target="_blank"
-                >Django Docs</a
-            >
-            |
-            <a href="https://github.com/Asif-4520" target="_blank"
-                >My Portfolio</a
-            >
-        </div>
+        <footer>© 2025 <b>Asif</b>. Powered by Django ⚡</footer>
 
-        <!-- Footer -->
-        <footer>© 2025 Asif. All rights reserved.</footer>
+        <script>
+            // Mouse follower animation
+            const cursor = document.getElementById('cursor-glow');
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = `${e.clientX}px`;
+                cursor.style.top = `${e.clientY}px`;
+            });
+
+            // Smooth parallax effect
+            document.addEventListener('mousemove', (e) => {
+                const moveX = (e.clientX / window.innerWidth - 0.5) * 10;
+                const moveY = (e.clientY / window.innerHeight - 0.5) * 10;
+                document.querySelector(
+                    '.container'
+                ).style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        </script>
     </body>
 </html>
