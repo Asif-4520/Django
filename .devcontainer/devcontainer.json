@@ -7,7 +7,6 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "streetsidesoftware.code-spell-checker",
                 "esbenp.prettier-vscode",
                 "ms-python.vscode-pylance",
                 "ms-python.python",
@@ -19,38 +18,11 @@
                 "prettier.jsxSingleQuote": true,
                 "prettier.semi": true,
                 "python.pythonPath": "/usr/local/bin/python3"
-            },
-            "keybindings": [
-                {
-                    "key": "ctrl+alt+r",
-                    "command": "workbench.action.terminal.sendSequence",
-                    "args": {
-                        "text": "python manage.py runserver 0.0.0.0:8000\u000D"
-                    }
-                },
-                {
-                    "key": "ctrl+alt+m",
-                    "command": "workbench.action.terminal.sendSequence",
-                    "args": {
-                        "text": "python manage.py migrate\u000D"
-                    }
-                },
-                {
-                    "key": "ctrl+alt+c",
-                    "command": "workbench.action.terminal.sendSequence",
-                    "args": {
-                        "text": "python manage.py createsuperuser\u000D"
-                    }
-                },
-                {
-                    "key": "ctrl+alt+s",
-                    "command": "workbench.action.files.save"
-                }
-            ]
+            }
         }
     },
 
     "remoteUser": "vscode",
 
-    "postStartCommand": "echo 'Running Django migrations...' && python manage.py migrate && echo 'Starting Django server...' && python manage.py runserver 0.0.0.0:8000"
+    "postStartCommand": "python manage.py migrate && python manage.py runserver 8000"
 }
