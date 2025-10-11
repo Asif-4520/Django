@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Django Starter | ASIF DEV</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            /* Reset */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Montserrat', sans-serif;
+                background: linear-gradient(135deg, #0f172a, #1e293b);
+                color: #e2e8f0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                text-align: center;
+                overflow: hidden;
+                padding: 20px;
+            }
+
+            /* Gradient animated heading */
+            h1 {
+                font-size: 3rem;
+                background: linear-gradient(90deg, #38bdf8, #0ea5e9, #06b6d4);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: glow 2s ease-in-out infinite alternate;
+                margin-bottom: 15px;
+            }
+
+            @keyframes glow {
+                from {
+                    text-shadow: 0 0 10px #00b3ff;
+                }
+                to {
+                    text-shadow: 0 0 25px #0ea5e9;
+                }
+            }
+
+            /* Description */
+            p {
+                color: #94a3b8;
+                font-size: 1.2rem;
+                margin-bottom: 30px;
+            }
+
+            /* Buttons */
+            .btn {
+                display: inline-block;
+                padding: 12px 25px;
+                margin: 5px;
+                font-weight: bold;
+                border-radius: 30px;
+                text-decoration: none;
+                color: #0f172a;
+                background: #38bdf8;
+                transition: all 0.3s ease;
+            }
+
+            .btn:hover {
+                background: #0ea5e9;
+                box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+            }
+
+            /* Resource links */
+            .resource-links {
+                margin-top: 25px;
+            }
+
+            .resource-links a {
+                margin: 0 10px;
+                color: #38bdf8;
+                font-weight: bold;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .resource-links a:hover {
+                color: #0ea5e9;
+            }
+
+            /* Footer */
+            footer {
+                position: absolute;
+                bottom: 20px;
+                font-size: 0.9rem;
+                color: #94a3b8;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Heading -->
+        <h1>Django Starter Project</h1>
+
+        <!-- Description -->
+        <p>Your clean base setup is ready !</p>
+
+        <!-- Buttons -->
+        <div>
+            <a href="https://www.djangoproject.com/" class="btn" target="_blank"
+                >🌐 Django Official</a
+            >
+
+            <a
+                href="https://github.com/Asif-4520/Django"
+                class="btn"
+                target="_blank"
+                >🐙 GitHub Repo</a
+            >
+        </div>
+
+        <!-- Other resources -->
+        <div class="resource-links">
+            <a href="https://docs.djangoproject.com/en/5.2/" target="_blank"
+                >Django Docs</a
+            >
+            |
+            <a href="https://github.com/Asif-4520" target="_blank"
+                >My Portfolio</a
+            >
+        </div>
+
+        <!-- Footer -->
+        <footer>© 2025 Asif. All rights reserved.</footer>
+    </body>
+</html>
