@@ -10,7 +10,10 @@
                 "esbenp.prettier-vscode",
                 "ms-python.vscode-pylance",
                 "ms-python.python",
-                "hiteshchoudharycode.chai-theme"
+                "hiteshchoudharycode.chai-theme",
+                "PKief.material-icon-theme",
+                "eamodio.gitlens",
+                "oderwat.indent-rainbow"
             ],
             "settings": {
                 "prettier.tabWidth": 4,
