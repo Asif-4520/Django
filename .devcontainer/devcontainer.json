@@ -1,7 +1,8 @@
 {
-    "name": "Django Setup",
-    "image": "mcr.microsoft.com/devcontainers/python:0-3.11-bullseye",
+    "name": "🚀 Django Starter - Asif Codespace",
+    "image": "mcr.microsoft.com/devcontainers/python:3.11-bullseye",
     "forwardPorts": [8000],
+
     "postCreateCommand": "pip install --user -r requirements.txt",
 
     "customizations": {
@@ -16,16 +17,18 @@
                 "oderwat.indent-rainbow"
             ],
             "settings": {
-                "prettier.tabWidth": 4,
-                "prettier.singleQuote": true,
-                "prettier.jsxSingleQuote": true,
-                "prettier.semi": true,
-                "python.pythonPath": "/usr/local/bin/python3"
+                "workbench.colorTheme": "Chai Theme",
+                "workbench.iconTheme": "material-icon-theme",
+                "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
+                "editor.smoothScrolling": true,
+                "editor.cursorSmoothCaretAnimation": "on",
+                "python.defaultInterpreterPath": "/usr/local/bin/python3",
+                "terminal.integrated.fontFamily": "JetBrains Mono"
             }
         }
     },
 
     "remoteUser": "vscode",
 
-    "postStartCommand": "python manage.py migrate && python manage.py runserver 8000"
+    "postStartCommand": "python manage.py migrate && code --new-window --command 'workbench.action.terminal.sendSequence' --args '{\"text\":\"python manage.py runserver 0.0.0.0:8000\\u000D\"}'"
 }
