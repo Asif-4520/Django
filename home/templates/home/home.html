@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Django Starter • Asif</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Poppins', sans-serif;
+                background: #0f172a;
+                color: #e2e8f0;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            }
+
+            .card {
+                text-align: center;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                padding: 50px 45px;
+                border-radius: 18px;
+                backdrop-filter: blur(15px);
+            }
+
+            h1 {
+                font-size: 2.7rem;
+                font-weight: 700;
+                background: linear-gradient(90deg, #22d3ee, #38bdf8, #6366f1);
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+
+            p {
+                margin: 10px 0 25px;
+                color: #94a3b8;
+                font-size: 1.1rem;
+            }
+
+            .btns {
+                display: flex;
+                gap: 12px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                text-decoration: none;
+                padding: 10px 24px;
+                border-radius: 10px;
+                font-weight: 600;
+                color: #0f172a;
+                background: linear-gradient(90deg, #22d3ee, #38bdf8, #6366f1);
+                transition: 0.2s;
+                font-size: 0.95rem;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px);
+                opacity: 0.9;
+            }
+
+            footer {
+                text-align: center;
+                margin-top: 20px;
+                font-size: 0.9rem;
+                color: #64748b;
+            }
+
+            @media (max-width: 600px) {
+                .card {
+                    padding: 35px 25px;
+                }
+                h1 {
+                    font-size: 2.1rem;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <div class="card">
+                <h1>Django Starter</h1>
+                <p>A clean and simple starter project.</p>
+
+                <div class="btns">
+                    <a
+                        href="https://github.com/Asif-4520/Django"
+                        target="_blank"
+                        class="btn"
+                        >GitHub Repo</a
+                    >
+                    <a
+                        href="https://docs.djangoproject.com/en/5.2/"
+                        target="_blank"
+                        class="btn"
+                        >Django Docs</a
+                    >
+                    <a
+                        href="https://github.com/Asif-4520"
+                        target="_blank"
+                        class="btn"
+                        >My GitHub Profile</a
+                    >
+                </div>
+            </div>
+
+            <footer>© 2025 Asif • Built with Django ⚡</footer>
+        </div>
+    </body>
+</html>
